@@ -2,7 +2,7 @@
 %html
   %head
     %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
-    %title Fonix Chat
+    %title= Rails.application.class.module_parent_name
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
@@ -14,4 +14,7 @@
     .container
       .row
         .col-12
-          = yield
+          = render partial: 'shared/nav_bar'
+          %p
+          %div
+            = yield

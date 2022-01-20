@@ -17,9 +17,64 @@
 @import "bootstrap";
 
 .alert-alert {
-  color: #842029;
   background-color: #f8d7da;
   border-color: #f5c2c7;
+  color: #842029;
+}
+
+.avatar {
+  border-radius: 15px;
+  max-height:30px;
+  vertical-align:middle;
+  width:auto;
+}
+
+.bd-navbar {
+  min-height: 4rem;
+  background-color: #563d7c;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.channel-nav-link {
+  border: 1px solid lighten($primary, 40%);
+  background: lighten($primary, 45%);
+
+  & + .channel-nav-link {
+    border-top: 0 none;
+  }
+}
+
+.chat {
+  border: 1px solid lighten($secondary, 40%);
+  background: lighten($secondary, 50%);
+  height: 50vh;
+  border-radius: 5px 5px 0 0;
+  overflow-y: auto;
+}
+
+.chat-input {
+  border-top: 0 none;
+  border-radius: 0 0 5px 5px;
+}
+
+.chat-message-container {
+  padding: 5px;
+
+  .avatar {
+    margin: 5px;
+  }
+
+  .message-content {
+    padding: 5px;
+    border: 1px solid $primary;
+    border-radius: 5px;
+    background: lighten($primary, 10%);
+    color: $white;
+  }
+
+  & + .chat-message-container {
+    margin-top: 10px;
+  }
 }
 
 .alert-notice {

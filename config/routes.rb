@@ -21,5 +21,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  # root to: 'home#index'
+  root to: 'channels#index'
+
+  resources :channel_messages
+  resources :channels
 end

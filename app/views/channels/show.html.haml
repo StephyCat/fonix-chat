@@ -1,0 +1,21 @@
+.row
+  .col
+    .chat
+      - @channel_messages.each do |message|
+        .chat-message-container
+          .row.no-gutters
+            .col-auto.text-center
+            .col
+              .message-content
+                %p.mb-1= message.message
+                .text-end
+                  %small= message.created_at
+    = simple_form_for @channel_message, remote: true do |form|
+      .input-group.mb-3
+        = form.input :message, as: :string,
+          wrapper: false,
+          label: false,
+          input_html: { class: 'chat-input' }
+        .input-group-append
+          = form.submit 'Send', class: 'btn btn-primary chat-input'
+      = form.input :channel_id, as: :hidden
