@@ -1,0 +1,14 @@
+%p Dear #{@user.full_name},
+%p
+%p
+  #{@total_exchanged_last_week} #{'message'.pluralize(@total_exchanged_last_week)} have been exchanged in the last week.
+  %br
+  - if @last_sent_message.present?
+    #{@total_since_last_message} since your last message on the #{@last_sent_message.updated_at.strftime('%d').to_i.ordinalize} of #{@last_sent_message.updated_at.strftime('%B')}.
+  - else
+    #{@total_since_last_message} since your last message on the #{Time.current.strftime('%d').to_i.ordinalize} of #{Time.current.strftime('%B')}.
+%p
+%p
+  Best,
+  %br
+  Fonix Chat
