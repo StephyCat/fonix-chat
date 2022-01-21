@@ -1,15 +1,18 @@
 .row
   .col
-    .chat
+    .chat{ 'data-channel-subscribe' => 'entity', 'data-channel-id' => @channel.id }
       - @channel_messages.each do |message|
         .chat-message-container
           .row.no-gutters
             .col-auto.text-center
+              %img.avatar{ src: message.user.avatar_url }
             .col
               .message-content
                 %p.mb-1= message.message
                 .text-end
-                  %small= message.created_at
+                  %small
+                    %strong= message.user.full_name
+                  %small= message.created_at.strftime('%F %T %:z')
     = simple_form_for @channel_message, remote: true do |form|
       .input-group.mb-3
         = form.input :message, as: :string,
@@ -19,3 +22,14 @@
         .input-group-append
           = form.submit 'Send', class: 'btn btn-primary chat-input'
       = form.input :channel_id, as: :hidden
+
+.d-none{'data-role' => 'message-template'}
+  .chat-message-container
+    .row.no-gutters
+      .col-auto.text-center
+        %img.avatar{:alt => '', 'data-role' => 'user-avatar', :src => ''}/
+      .col
+        .message-content
+          %p.mb-1{'data-role' => 'message-text'}
+          .text-end
+            %small{'data-role' => 'message-date'}

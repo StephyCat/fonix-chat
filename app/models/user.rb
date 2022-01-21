@@ -11,4 +11,8 @@ class User < ApplicationRecord
   def full_name
     [first_name, middle_name, last_name].map(&:presence).compact.join(' ')
   end
+
+  def avatar_url
+    '/icons/avatar.png'
+  end
 end

@@ -8,6 +8,8 @@ class ChannelMessagesController < ApplicationController
       channel: @channel,
       message: params.dig(:channel_message, :message),
     })
+
+    MainChannel.broadcast_to @channel, @channel_message
   end
 
   protected
