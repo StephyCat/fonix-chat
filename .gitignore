@@ -31,5 +31,9 @@
 
 /public/assets
 
+# Ignore application specific configuration files
+/config/application.yml
+/config/database.yml
+
 # Ignore master key for decrypting credentials and more.
 /config/master.key
