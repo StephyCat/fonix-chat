@@ -37,6 +37,22 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { host: 'stephycat.com', port: 5040 }
+  config.action_mailer.delivery_method = ENV['ACTION_MAILER_DELIVERY_METHOD']
+  config.action_mailer.perform_deliveries = (ENV['ACTION_MAILER_PERFORM_DELIVERIES'] == 'true')
+
+  config.action_mailer.smtp_settings = {
+    authentication: ENV['ACTION_MAILER_SMTP_AUTHENTICATION'],
+    address: ENV['ACTION_MAILER_SMTP_ADDRESS'],
+    port: ENV['ACTION_MAILER_SMTP_PORT'],
+    domain: ENV['ACTION_MAILER_SMTP_DOMAIN'],
+    user_name: ENV['ACTION_MAILER_SMTP_USER_NAME'],
+    password: ENV['ACTION_MAILER_SMTP_PASSWORD'],
+  }
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
