@@ -49,6 +49,8 @@ gem 'bootsnap', require: false
 # gem 'image_processing', '~> 1.2'
 
 gem 'bootstrap'
+gem 'devise'
+gem 'execjs'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'redis'
